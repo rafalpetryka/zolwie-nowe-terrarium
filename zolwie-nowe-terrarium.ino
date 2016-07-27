@@ -22,13 +22,20 @@ void loop()
 
   if(params = e.serviceRequest())
   {
-    if (strcmp(params, "lampka_grzewcza/1") == 0) {
+    if (strcmp(params, "heat_lamp/1") == 0) {
       digitalWrite(2, HIGH);
-      e.print("Lampka grzewcza włączona");        
-    } else if (strcmp(params, "lampka_grzewcza/0") == 0) {
+      e.print("Lampka grzewcza włączona");
+    } else if (strcmp(params, "heat_lamp/0") == 0) {
       digitalWrite(2, LOW);
       e.print("Lampka grzewcza wyłączona");
-    } else {
+    } else if (strcmp(params, "light_for_plants/1") == 0) {
+      digitalWrite(3, HIGH);
+      e.print("Lampka do roślin włączona");
+    } else if (strcmp(params, "light_for_plants/0") == 0) {
+      digitalWrite(3, LOW);
+      e.print("Lampka do roślin wyłączona");
+    }
+    else {
       e.print("Niepoprwany adres"); 
     }
     e.respond();
